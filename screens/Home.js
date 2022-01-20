@@ -43,19 +43,19 @@ const Home = ({ navigation }) => {
                     >
                         What you want to cook Today?
                     </Text>
-                    <TouchableOpacity
+                </View>
+                <TouchableOpacity
                         onPress={() => console.log("profile")}
                     >
                         <Image
                             source={images.profile}
                             style={{
                                 width: 40,
-                                width: 40,
+                                height: 40,
                                 borderRadius:20
                             }}
                         />
                     </TouchableOpacity>
-                </View>
             </View>
         )
     }
@@ -74,25 +74,86 @@ const Home = ({ navigation }) => {
                 }}
             > 
                 <Image
-                    source={images.search}
+                    source={Icons.search}
                     style={{
                         width: 20,
                         height: 20,
                         tintColor: COLORS.gray
                     }}
-                > 
-
-                </Image>
+                />
 
                 <TextInput
                     style={{
                         marginLeft: SIZES.radius,
                         ...FONTS.body3
                     }}
+                    placeholderTextColor={COLORS.gray}
+                    placeholde="Search Recipes"
+                />
+
+            </View>
+        )
+    }
+
+    const renderSeeRecipeCard = () => {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    marginTop: SIZES.padding,
+                    marginHorizontal: SIZES.padding,
+                    borderRadius: 10,
+                    backgroundColor: COLORS.lightGreen
+                }}
+            >
+                <View
+                    style={{
+                        width: 100,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}
                 >
+                    <Image source={images.recipe}
+                        style={{
+                            width: 80,
+                            height: 80
+                        }}
 
+                    />
+                </View>
 
-                </TextInput>
+                <View 
+                    style={{
+                        flex: 1,
+                        paddingVertical: SIZES.radius
+                    }}
+                >
+                    <Text
+                        style={{
+                            width: "70%",
+                            ...FONTS.body4
+                        }}
+                    >
+                        You have 12 recipes that you haven't tried yet
+                    </Text>
+                    <TouchableOpacity
+                        style={{
+                            marginTop: 10
+                        }}
+                        onPress={() => console.log('See recipes')}
+                    >
+                        <Text
+                            style={{
+                                color: COLORS.darkGreen,
+                                textDecorationLine: 'underline',
+                                ...FONTS.h4
+                            }}
+                        > 
+                            See Recipes
+                        </Text>
+
+                    </TouchableOpacity>
+                </View>
 
             </View>
         )
@@ -117,6 +178,7 @@ const Home = ({ navigation }) => {
                         {/* search */}
                         {renderSearchBar()}
                         {/* see recipe card */}
+                        {renderSeeRecipeCard()}
                         {/* trending section */}
                         {/* category header */}
 
